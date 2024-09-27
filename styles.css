@@ -1,374 +1,133 @@
 /* Общие стили для всего приложения */
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Убедитесь, что шрифт Poppins подключен в HTML */
 }
 
 body {
-	background: url('https://cdn.pixabay.com/photo/2016/12/27/17/42/winter-1933726_960_720.jpg')
-		no-repeat center center fixed;
-	background-size: cover;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: #fff;
+    background: url('https://cdn.pixabay.com/photo/2016/12/27/17/42/winter-1933726_960_720.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
 }
 
 .container {
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
-	padding: 20px;
-	background: rgba(255, 255, 255, 0.1);
-	border-radius: 20px;
-	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Стили для игровой части */
-.game {
-	margin-bottom: 20px;
-}
-
-.coin {
-	font-size: 150px;
-	color: gold;
-	cursor: pointer;
-	transition: transform 0.2s ease-in-out;
-	animation: bounce 1s infinite;
-	border-radius: 50%;
-	background: radial-gradient(
-		circle,
-		rgba(255, 223, 0, 1) 0%,
-		rgba(255, 196, 0, 1) 100%
-	);
-	padding: 20px;
-}
-
-.coin:hover {
-	transform: scale(1.1);
-}
-
-.score {
-	font-size: 28px;
-	margin: 20px 0;
-	color: #fff;
-	font-weight: bold;
-	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Меню снизу */
-.menu {
-	display: flex;
-	justify-content: space-around;
-	padding-top: 20px;
-}
-
-.menu button {
-	flex: 1;
-	margin: 0 10px;
-	padding: 15px;
-	font-size: 16px;
-	border: none;
-	background-color: #ffcc00;
-	color: white;
-	border-radius: 10px;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.menu button:hover {
-	background-color: #ffaa00;
-}
-
-.menu button:active {
-	transform: scale(0.98);
-}
-
-/* Стили для страниц, которые открываются при нажатии на кнопки */
-.page {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.85);
-	color: white;
-	text-align: center;
-	padding: 40px 20px;
-	z-index: 10;
-}
-
-.page h2 {
-	font-size: 28px;
-	margin-bottom: 20px;
-}
-
-.page p {
-	font-size: 18px;
-	margin-bottom: 20px;
-}
-
-.page button {
-	padding: 10px 20px;
-	font-size: 18px;
-	background-color: #ffcc00;
-	color: white;
-	border-radius: 10px;
-	border: none;
-	cursor: pointer;
-	margin-top: 20px;
-	transition: background-color 0.3s ease;
-}
-
-.page button:hover {
-	background-color: #ffaa00;
-}
-
-.page button:active {
-	transform: scale(0.98);
-}
-
-/* Анимация для монетки */
-@keyframes bounce {
-	0%,
-	100% {
-		transform: translateY(0);
-	}
-	50% {
-		transform: translateY(-20px);
-	}
-}
-
-/* Анимации для кнопок меню */
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(20px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-.menu button {
-	animation: fadeIn 0.6s ease;
-}
-
-.menu button:nth-child(1) {
-	animation-delay: 0.1s;
-}
-
-.menu button:nth-child(2) {
-	animation-delay: 0.2s;
-}
-
-.menu button:nth-child(3) {
-	animation-delay: 0.3s;
-}
-
-/* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
-	.container {
-		width: 90%;
-		padding: 15px;
-	}
-
-	.coin {
-		font-size: 120px;
-	}
-
-	.score {
-		font-size: 24px;
-	}
-
-	.menu button {
-		font-size: 14px;
-		padding: 12px;
-	}
-
-	.page h2 {
-		font-size: 24px;
-	}
-
-	.page p {
-		font-size: 16px;
-	}
-}
-
-body {
-	margin: 0;
-	overflow: hidden;
-	font-family: 'Arial', sans-serif;
-	background-color: #f0f8ff;
-	background-image: url('snow.png'); /* Замените на ваш фон */
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-.snow {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	pointer-events: none;
-	z-index: 0;
-	animation: snow 10s linear infinite;
-}
-
-@keyframes snow {
-	0% {
-		background-position: 0 0;
-	}
-	100% {
-		background-position: 0 100%;
-	}
-}
-
-.container {
-	position: relative;
-	z-index: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
-	text-align: center;
-	color: #333;
-}
-
-h1 {
-	font-size: 2.5em;
-	margin-bottom: 20px;
-}
-
-.button-container {
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
-}
-
-.animated-button {
-	background-image: url('your-image.png'); /* Замените на ваше изображение для кнопки */
-	background-size: cover;
-	border: none;
-	border-radius: 10px;
-	color: white;
-	padding: 15px 25px;
-	font-size: 1.2em;
-	cursor: pointer;
-	transition: transform 0.2s;
-}
-
-.animated-button:hover {
-	transform: scale(1.1);
-}
-
-.game-embed {
-	margin-top: 20px;
-	width: 100%;
-	max-width: 600px;
-	border-radius: 10px;
-	overflow: hidden;
-}
-
-/* Общие стили для всего приложения */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif; /* Убедитесь, что шрифт Poppins подключен в HTML */
-}
-
-body {
-	background: url('https://cdn.pixabay.com/photo/2016/12/27/17/42/winter-1933726_960_720.jpg')
-		no-repeat center center fixed;
-	background-size: cover;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: #fff;
-}
-
-.container {
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
-	padding: 20px;
-	background: rgba(255, 255, 255, 0.1);
-	border-radius: 20px;
-	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Стили для секций */
 .section {
-	padding: 20px;
-	color: white;
-	text-align: center;
+    padding: 20px;
+    color: white;
+    text-align: center;
 }
 
 /* Анимация фона с снегом */
 body {
-	background: url('path_to_snow_background.gif') no-repeat center center fixed; /* Замените на путь к вашему фону с снегом */
-	background-size: cover;
+    background: url('path_to_snow_background.gif') no-repeat center center fixed; /* Замените на путь к вашему фону с снегом */
+    background-size: cover;
 }
 
 /* Стили для кнопок */
 .button {
-	background: url('https://imgur.com/a/au6xdiC') no-repeat center; /* Замените на ваш URL для фона кнопок */
-	background-size: cover;
-	border: none;
-	padding: 10px 20px;
-	cursor: pointer;
-	transition: transform 0.2s;
-	color: #fff;
-	font-size: 16px;
-	border-radius: 5px;
+    background: url('https://imgur.com/a/au6xdiC') no-repeat center; /* Замените на ваш URL для фона кнопок */
+    background-size: cover;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
 .button:hover {
-	transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 /* Стили для игровой части */
 .game {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .coin {
-	font-size: 150px; /* Размер монеты */
-	color: gold; /* Цвет монеты */
-	cursor: pointer; /* Указатель мыши на монету */
-	transition: transform 0.2s; /* Плавный эффект при наведении */
+    font-size: 150px; /* Размер монеты */
+    color: gold; /* Цвет монеты */
+    cursor: pointer; /* Указатель мыши на монету */
+    transition: transform 0.2s; /* Плавный эффект при наведении */
+    animation: bounce 1s infinite; /* Анимация подскакивания */
+    border-radius: 50%; /* Скругление углов монеты */
+    background: radial-gradient(
+        circle,
+        rgba(255, 223, 0, 1) 0%,
+        rgba(255, 196, 0, 1) 100%
+    );
+    padding: 20px;
 }
 
 .coin:hover {
-	transform: scale(1.1); /* Увеличение монеты при наведении */
+    transform: scale(1.1); /* Увеличение монеты при наведении */
 }
 
 /* Стили для текста */
 h1 {
-	font-size: 2.5em; /* Размер заголовка */
-	margin-bottom: 20px;
+    font-size: 2.5em; /* Размер заголовка */
+    margin-bottom: 20px;
 }
 
 p {
-	font-size: 1.2em; /* Размер текста абзаца */
-	margin-bottom: 20px;
+    font-size: 1.2em; /* Размер текста абзаца */
+    margin-bottom: 20px;
 }
 
 /* Стили для отображения монет и улучшений */
-#coins,
-#multiplier,
-#upgradeCost,
-#upgradeCost2 {
-	font-size: 1.5em; /* Размер текста для отображения данных */
-	margin-top: 10px;
+#coins, #multiplier, #upgradeCost, #upgradeCost2 {
+    font-size: 1.5em; /* Размер текста для отображения данных */
+    margin-top: 10px;
+}
+
+/* Стили для анимации монеты */
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .coin {
+        font-size: 120px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    #coins, #multiplier, #upgradeCost, #upgradeCost2 {
+        font-size: 1.2em;
+    }
 }
