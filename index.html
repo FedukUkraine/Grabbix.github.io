@@ -3,54 +3,45 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Grabbix App</title>
+		<title>Grabbix Game</title>
 		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
-		<!-- Главный интерфейс игры -->
-		<div class="game-container">
-			<div class="circle">
-				<img src="your-image.png" alt="Game Symbol" />
+		<div class="container">
+			<div class="game">
+				<div class="coin" onclick="tapCoin()">💰</div>
+				<div class="score">Монет: <span id="coins">0</span></div>
 			</div>
-			<div class="tap-counter">
-				<p>Тапов: <span id="tap-count">0</span></p>
+			<div class="menu">
+				<button onclick="showPage('upgrades')">Улучшения</button>
+				<button onclick="showPage('quests')">Задания</button>
+				<button onclick="showPage('airdrop')">Airdrop</button>
 			</div>
 		</div>
 
-		<!-- Меню снизу с кнопками -->
-		<div class="bottom-menu">
-			<button class="menu-btn" id="main-game">Игра</button>
-			<button class="menu-btn" id="upgrades">Улучшения</button>
-			<button class="menu-btn" id="tasks">Задания</button>
-			<button class="menu-btn" id="airdrop">Аирдроп</button>
+		<div class="page" id="upgrades">
+			<h2>Улучшения</h2>
+			<p>Текущий множитель: <span id="multiplier">1</span></p>
+			<button onclick="buyUpgrade()">
+				Купить улучшение за <span id="upgradeCost">10</span> монет
+			</button>
+			<button onclick="hidePage()">Назад</button>
 		</div>
 
-		<!-- Скрипты для логики игры -->
-		<script>
-			let tapCount = 0
+		<div class="page" id="quests">
+			<h2>Задания</h2>
+			<p>Подпишитесь на наши каналы и получите награды!</p>
+			<button onclick="checkSubscription()">Проверить подписку</button>
+			<button onclick="hidePage()">Назад</button>
+		</div>
 
-			document
-				.getElementById('main-game')
-				.addEventListener('click', function () {
-					tapCount++
-					document.getElementById('tap-count').textContent = tapCount
-				})
+		<div class="page" id="airdrop">
+			<h2>Airdrop</h2>
+			<p>Следующий Airdrop будет через: <span id="airdropTime">12:00</span></p>
+			<p>Цена: <span id="airdropPrice">100 монет</span></p>
+			<button onclick="hidePage()">Назад</button>
+		</div>
 
-			// Логика для других кнопок, таких как улучшения, задания и аирдропы
-			document
-				.getElementById('upgrades')
-				.addEventListener('click', function () {
-					alert('Здесь будет улучшение тапов!')
-				})
-
-			document.getElementById('tasks').addEventListener('click', function () {
-				alert('Выполняй задания и проверяй подписку!')
-				// Здесь будет логика проверки подписки на канал
-			})
-
-			document.getElementById('airdrop').addEventListener('click', function () {
-				alert('Аирдроп скоро начнется! Следи за ценой!')
-			})
-		</script>
+		<script src="scripts.js"></script>
 	</body>
 </html>
