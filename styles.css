@@ -277,3 +277,98 @@ h1 {
 	border-radius: 10px;
 	overflow: hidden;
 }
+
+/* Общие стили для всего приложения */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif; /* Убедитесь, что шрифт Poppins подключен в HTML */
+}
+
+body {
+	background: url('https://cdn.pixabay.com/photo/2016/12/27/17/42/winter-1933726_960_720.jpg')
+		no-repeat center center fixed;
+	background-size: cover;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+}
+
+.container {
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 20px;
+	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для секций */
+.section {
+	padding: 20px;
+	color: white;
+	text-align: center;
+}
+
+/* Анимация фона с снегом */
+body {
+	background: url('path_to_snow_background.gif') no-repeat center center fixed; /* Замените на путь к вашему фону с снегом */
+	background-size: cover;
+}
+
+/* Стили для кнопок */
+.button {
+	background: url('https://imgur.com/a/au6xdiC') no-repeat center; /* Замените на ваш URL для фона кнопок */
+	background-size: cover;
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: transform 0.2s;
+	color: #fff;
+	font-size: 16px;
+	border-radius: 5px;
+}
+
+.button:hover {
+	transform: scale(1.1);
+}
+
+/* Стили для игровой части */
+.game {
+	margin-bottom: 20px;
+}
+
+.coin {
+	font-size: 150px; /* Размер монеты */
+	color: gold; /* Цвет монеты */
+	cursor: pointer; /* Указатель мыши на монету */
+	transition: transform 0.2s; /* Плавный эффект при наведении */
+}
+
+.coin:hover {
+	transform: scale(1.1); /* Увеличение монеты при наведении */
+}
+
+/* Стили для текста */
+h1 {
+	font-size: 2.5em; /* Размер заголовка */
+	margin-bottom: 20px;
+}
+
+p {
+	font-size: 1.2em; /* Размер текста абзаца */
+	margin-bottom: 20px;
+}
+
+/* Стили для отображения монет и улучшений */
+#coins,
+#multiplier,
+#upgradeCost,
+#upgradeCost2 {
+	font-size: 1.5em; /* Размер текста для отображения данных */
+	margin-top: 10px;
+}
