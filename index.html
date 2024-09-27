@@ -1,47 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Grabbix Game</title>
 		<link rel="stylesheet" href="styles.css" />
+		<title>Grabbix App</title>
 	</head>
 	<body>
-		<div class="container">
-			<div class="game">
-				<div class="coin" onclick="tapCoin()">💰</div>
-				<div class="score">Монет: <span id="coins">0</span></div>
-			</div>
-			<div class="menu">
-				<button onclick="showPage('upgrades')">Улучшения</button>
-				<button onclick="showPage('quests')">Задания</button>
-				<button onclick="showPage('airdrop')">Airdrop</button>
-			</div>
+		<div id="mainPage" class="page">
+			<h1>Grabbix App</h1>
+			<div id="coins">Монеты: 0</div>
+			<div id="multiplier">Сила тапа: 1</div>
+			<div id="upgradeCost">Стоимость первого улучшения: 10</div>
+			<div id="upgradeCost2">Стоимость второго улучшения: 50</div>
+			<button onclick="tapCoin()">Нажать на монету</button>
+			<button onclick="buyUpgrade()">Купить улучшение</button>
+			<button onclick="buyUpgrade2()">Купить второе улучшение</button>
+			<button onclick="showPage('subscriptionPage')">Проверить подписку</button>
 		</div>
 
-		<div class="page" id="upgrades">
-			<h2>Улучшения</h2>
-			<p>Текущий множитель: <span id="multiplier">1</span></p>
-			<button onclick="buyUpgrade()">
-				Купить улучшение за <span id="upgradeCost">10</span> монет
-			</button>
-			<button onclick="hidePage()">Назад</button>
+		<div id="subscriptionPage" class="page" style="display: none">
+			<h1>Проверка подписки</h1>
+			<button onclick="checkSubscription()">Проверить подписку на канал</button>
+			<button onclick="showPage('mainPage')">Назад</button>
 		</div>
 
-		<div class="page" id="quests">
-			<h2>Задания</h2>
-			<p>Подпишитесь на наши каналы и получите награды!</p>
-			<button onclick="checkSubscription()">Проверить подписку</button>
-			<button onclick="hidePage()">Назад</button>
-		</div>
-
-		<div class="page" id="airdrop">
-			<h2>Airdrop</h2>
-			<p>Следующий Airdrop будет через: <span id="airdropTime">12:00</span></p>
-			<p>Цена: <span id="airdropPrice">100 монет</span></p>
-			<button onclick="hidePage()">Назад</button>
-		</div>
-
-		<script src="scripts.js"></script>
+		<script src="script.js"></script>
 	</body>
 </html>
