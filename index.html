@@ -7,24 +7,57 @@
 		<title>Grabbix App</title>
 	</head>
 	<body>
-		<div id="mainPage" class="page">
-			<h1>Grabbix App</h1>
-			<div id="coins">Монеты: 0</div>
-			<div id="multiplier">Сила тапа: 1</div>
-			<div id="upgradeCost">Стоимость первого улучшения: 10</div>
-			<div id="upgradeCost2">Стоимость второго улучшения: 50</div>
-			<button onclick="tapCoin()">Нажать на монету</button>
-			<button onclick="buyUpgrade()">Купить улучшение</button>
-			<button onclick="buyUpgrade2()">Купить второе улучшение</button>
-			<button onclick="showPage('subscriptionPage')">Проверить подписку</button>
+		<div class="snow"></div>
+		<div class="container">
+			<h1>Добро пожаловать в Grabbix App!</h1>
+			<div class="button-container">
+				<button class="animated-button" onclick="openPage('game.html')">
+					Играть
+				</button>
+				<button class="animated-button" onclick="openPage('upgrades.html')">
+					Улучшение
+				</button>
+				<button class="animated-button" onclick="openPage('quests.html')">
+					Задания
+				</button>
+				<button class="animated-button" onclick="openPage('airdrops.html')">
+					Airdrop
+				</button>
+			</div>
+			<div class="game-embed">
+				<div
+					style="
+						position: relative;
+						width: 100%;
+						height: 0;
+						padding-top: 96px;
+						padding-bottom: 56.25%;
+						overflow: hidden;
+						will-change: transform;
+					"
+				>
+					<iframe
+						loading="lazy"
+						src="https://ru.freepik.com/designer/edit/share/6c40dd2e-ad9d-4db9-9d02-080446c52370?embed=1&expires=1727551811&signature=ee64a29a6978528886560d798dc7e9625ed2a77210c1569fbba99745542dc9c1"
+						style="
+							position: absolute;
+							width: 100%;
+							height: 100%;
+							top: 0;
+							left: 0;
+							border: none;
+							padding: 0;
+							margin: 0;
+						"
+					></iframe>
+				</div>
+			</div>
 		</div>
 
-		<div id="subscriptionPage" class="page" style="display: none">
-			<h1>Проверка подписки</h1>
-			<button onclick="checkSubscription()">Проверить подписку на канал</button>
-			<button onclick="showPage('mainPage')">Назад</button>
-		</div>
-
-		<script src="script.js"></script>
+		<script>
+			function openPage(page) {
+				window.location.href = page // Открывает новую страницу
+			}
+		</script>
 	</body>
 </html>
