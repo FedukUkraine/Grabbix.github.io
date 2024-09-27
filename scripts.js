@@ -34,3 +34,12 @@ function checkSubscription() {
 	coins += 100
 	document.getElementById('coins').innerText = coins
 }
+
+function showSection(sectionId) {
+	// Скрываем все секции
+	document.querySelectorAll('.section').forEach(section => {
+		section.classList.add('hidden')
+	})
+	// Показываем выбранную секцию
+	document.getElementById(sectionId).classList.remove('hidden')
+}
