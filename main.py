@@ -1,81 +1,43 @@
-<!DOCTYPE html>
-<html lang="ru">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="styles.css" />
-		<title>Grabbix App</title>
-		<style>
-			/* Анимация фона с снегом */
-			body {
-				background: url('path_to_snow_background.gif') no-repeat center center
-					fixed;
-				background-size: cover;
-			}
+import asyncio
+import sqlite3
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
+from telegram.ext import ApplicationBuilder, CommandHandler
 
-			.hidden {
-				display: none;
-			}
+async def start(update, context):
+    image_url = "https://ru.freepik.com/free-vector/hands-holding-tablet-with-forefinger-clicking-start-button-new-application-launch-flat-illustration_20827772.htm#fromView=keyword&page=1&position=0&uuid=ff28a3b0-d89e-4157-bd44-56c941576f16"
 
-			/* Стили для кнопок */
-			.button {
-				background: url('https://imgur.com/a/au6xdiC') no-repeat center;
-				background-size: cover;
-				border: none;
-				padding: 10px 20px;
-				cursor: pointer;
-				transition: transform 0.2s;
-			}
+    keyboard = [[InlineKeyboardButton("Играть", web_app=WebAppInfo(url="https://fedukukraine.github.io/Grabbix.github.io/"))]]
+    reply_markup = InlineKeyboardMarkup(keyboard)
 
-			.button:hover {
-				transform: scale(1.1);
-			}
+    await context.bot.send_photo(
+        chat_id=update.effective_chat.id,
+        photo=image_url,
+        caption="Приветствуем вас в боте Grabbix App! Это новая тапалка внутри Telegram. "
+                "Для начала игры нажми на кнопку ниже!",
+        reply_markup=reply_markup
+    )
 
-			.section {
-				padding: 20px;
-				color: white;
-				text-align: center;
-			}
-		</style>
-		<script
-			type="text/javascript"
-			src="https://code.jquery.com/jquery-3.4.1.min.js"
-		></script>
-	</head>
-	<body>
-		<div id="mainMenu" class="section">
-			<h1>Главное меню</h1>
-			<button class="button" onclick="showSection('upgrades')">
-				Улучшения
-			</button>
-			<button class="button" onclick="showSection('quests')">Задания</button>
-			<button class="button" onclick="showSection('airdrops')">Аирдропы</button>
-		</div>
+# Создаем подключение к базе данных (файл будет создан, если не существует)
+connection = sqlite3.connect('database.db')
+cursor = connection.cursor()
 
-		<div id="upgrades" class="section hidden">
-			<h1>Улучшения</h1>
-			<p>Здесь можно купить улучшения.</p>
-			<button class="button" onclick="showSection('mainMenu')">Назад</button>
-		</div>
+# Создаем таблицу, если ее нет
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    score INTEGER DEFAULT 0
+)
+''')
 
-		<div id="quests" class="section hidden">
-			<h1>Задания</h1>
-			<p>Подписывайтесь на каналы!</p>
-			<button class="button" onclick="showSection('mainMenu')">Назад</button>
-		</div>
+if __name__ == '__main__':
+    app = ApplicationBuilder().token('7297999944:AAFwKA5IM3iKO-xlZ_jUjholbaRwJ75hHVU').build()
+    
+    # Команда /start запускает приветственное сообщение
+    app.add_handler(CommandHandler('start', start))
 
-		<div id="airdrops" class="section hidden">
-			<h1>Аирдропы</h1>
-			<p>Информация о аирдропах.</p>
-			<button class="button" onclick="showSection('mainMenu')">Назад</button>
-		</div>
+    # Сохраняем изменения и закрываем соединение
+    connection.commit()
+    connection.close()
 
-		<script src="scripts.js"></script>
-		<script src="js/snowfall.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function () {
-				$(document).snowfall()
-			})
-		</script>
-	</body>
-</html>
+    asyncio.run(app.run_polling())
