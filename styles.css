@@ -1,0 +1,79 @@
+/* Общие стили */
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	height: 100vh;
+	background-color: #f0f0f0;
+	font-family: 'Arial', sans-serif;
+}
+
+/* Центральный кружочек с символом */
+.circle {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+	margin-top: 50px;
+}
+
+.circle img {
+	width: 80px;
+	height: 80px;
+}
+
+/* Счетчик тапов */
+.tap-counter {
+	font-size: 20px;
+	margin: 20px 0;
+	color: #333;
+}
+
+/* Меню снизу */
+.bottom-menu {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	background-color: #fff;
+	box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+	padding: 10px 0;
+}
+
+.menu-btn {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.menu-btn:hover {
+	background-color: #0056b3;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+	.circle {
+		width: 120px;
+		height: 120px;
+	}
+
+	.circle img {
+		width: 60px;
+		height: 60px;
+	}
+
+	.menu-btn {
+		font-size: 14px;
+		padding: 8px 15px;
+	}
+}

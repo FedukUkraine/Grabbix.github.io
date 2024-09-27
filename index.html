@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Grabbix App</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<!-- Главный интерфейс игры -->
+		<div class="game-container">
+			<div class="circle">
+				<img src="your-image.png" alt="Game Symbol" />
+			</div>
+			<div class="tap-counter">
+				<p>Тапов: <span id="tap-count">0</span></p>
+			</div>
+		</div>
+
+		<!-- Меню снизу с кнопками -->
+		<div class="bottom-menu">
+			<button class="menu-btn" id="main-game">Игра</button>
+			<button class="menu-btn" id="upgrades">Улучшения</button>
+			<button class="menu-btn" id="tasks">Задания</button>
+			<button class="menu-btn" id="airdrop">Аирдроп</button>
+		</div>
+
+		<!-- Скрипты для логики игры -->
+		<script>
+			let tapCount = 0
+
+			document
+				.getElementById('main-game')
+				.addEventListener('click', function () {
+					tapCount++
+					document.getElementById('tap-count').textContent = tapCount
+				})
+
+			// Логика для других кнопок, таких как улучшения, задания и аирдропы
+			document
+				.getElementById('upgrades')
+				.addEventListener('click', function () {
+					alert('Здесь будет улучшение тапов!')
+				})
+
+			document.getElementById('tasks').addEventListener('click', function () {
+				alert('Выполняй задания и проверяй подписку!')
+				// Здесь будет логика проверки подписки на канал
+			})
+
+			document.getElementById('airdrop').addEventListener('click', function () {
+				alert('Аирдроп скоро начнется! Следи за ценой!')
+			})
+		</script>
+	</body>
+</html>
