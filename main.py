@@ -1,5 +1,6 @@
 from os import name
 import asyncio
+import sqlite3
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 from telegram.ext import ApplicationBuilder, CommandHandler
 
@@ -20,10 +21,31 @@ async def start(update, context):
         reply_markup=reply_markup
     )
 
+# Создаем подключение к базе данных (файл будет создан, если не существует)
+connection = sqlite3.connect('database.db')
+
+# Создаем курсор для выполнения SQL-запросов
+cursor = connection.cursor()
+
+# Создаем таблицу
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    score INTEGER DEFAULT 0
+)
+''')
+
 if __name__ == '__main__':
     app = ApplicationBuilder().token('7756674839:AAGglegWHSD6N83lAYylhUzT6cNWmAcYy18').build()
     
     # Команда /start запускает приветственное сообщение
     app.add_handler(CommandHandler('start', start))
+
+    # Сохраняем изменения
+    connection.commit()
+    
+    # Закрываем соединение
+    connection.close()
 
     asyncio.run(app.run_polling())
