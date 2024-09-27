@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS users (
 ''')
 
 if __name__ == '__main__':
-    app = ApplicationBuilder().token('7297999944:AAFwKA5IM3iKO-xlZ_jUjholbaRwJ75hHVU').build()
+    app = ApplicationBuilder().token('7756674839:AAGglegWHSD6N83lAYylhUzT6cNWmAcYy18').build()
     
     # Команда /start запускает приветственное сообщение
     app.add_handler(CommandHandler('start', start))
