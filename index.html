@@ -10,11 +10,27 @@
 		<div class="game-container">
 			<h1>Grabbix - Кликер</h1>
 			<p>Кликай на монетку, чтобы зарабатывать очки!</p>
-			<div id="coin-container">
-				<img id="coin" src="https://imgur.com/a/9pZyoWw" alt="Монетка" />
+
+			<!-- Прогресс-бар для времени -->
+			<div id="progress-container">
+				<div id="progress-bar"></div>
 			</div>
+
+			<!-- Контейнер для монеты -->
+			<div id="coin-container">
+				<img id="coin" src="photo_2024-09-27_19-39-23.jpg" alt="Монетка" />
+			</div>
+
+			<!-- Отображение очков -->
 			<p>Твои очки: <span id="score">0</span></p>
+
+			<!-- Отображение оставшегося времени -->
+			<p>Осталось времени: <span id="time">30</span> секунд</p>
+
+			<!-- Кнопка для перезапуска игры -->
+			<button id="restart-button" style="display: none">Начать заново</button>
 		</div>
+
 		<script src="script.js"></script>
 	</body>
 </html>
